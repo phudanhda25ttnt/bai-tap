@@ -19,19 +19,20 @@ int main(){
 	int n = 2;
 	SV a[2];
 	FILE *fp;
-	fp = fopen("dssv.out","rb");
+	fp = fopen("dssv.out","wb");
 	//doc file
 	if(fp != NULL){
-		printf("doc file thanh cong");
+		printf("mo file thanh cong");
 		//ghi file
-		fread(a, sizeof(SV), n, fp);
+		fwrite(a, sizeof(SV), n, fp);
 		//dong file
 		fclose(fp);
 	}
 	else{
 		printf("khong mo file duoc");
 	}
-	xuatDSSV(a,n);
+	nhapDSSV(a,n);
+
     return 0;                         
 }
 void nhapDSSV(SV a[], int n){
@@ -56,7 +57,7 @@ void xuatDSSV(SV a[], int n){
 	
 void nhapSV(SV *a){
     printf("Nhap Mssv: ");	
-    fflush(stdin);
+    fflush(stdin);	
     scanf("%s", a->mssv);
 
     printf("\nNhap Ho Va Ten: ");
